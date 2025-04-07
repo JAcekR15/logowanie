@@ -1,0 +1,31 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#content{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+input {
+    margin: 5px;
+    border: 1px black solid;
+    padding: 6px;
+    border-radius: 5px;
+    padding-left: 15px;
+}
+
+#loginbutton{
+margin: 10px;
+padding: 10px;
+border-radius: 5px;
+border: 1px black solid;
+width: 10vw;
+}
