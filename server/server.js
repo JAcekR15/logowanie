@@ -25,7 +25,7 @@ app.get('/login/:login/:password',(req,res)=>{
  
  console.log(login);
  console.log(password);
- const sql = `INSERT INTO users(login, password, uprawnienia) VALUES (${login},${password},admin)`;
+ const sql = `INSERT INTO users(login, password, uprawnienia) VALUES ('${login}','${password}','admin')`;
     
  conn.query(sql, (err, dane, info) => {
     if(err){
