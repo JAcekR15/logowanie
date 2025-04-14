@@ -12,6 +12,14 @@ async function login() {
     console.log(response);
     console.log(data);
 
+    if(response.status=="ok"){
+        localStorage.setItem("login",JSON.stringify(response.user) )
+if(response.user.uprawnienia=="user"){
+    window.location.href = "user.html";
+}
+else if (response.user.uprawnienia=="admin"){
+    window.location.href = "admin.html";
+}}
 }
 
 
@@ -31,6 +39,10 @@ async function register() {
         const response = await data.json();
         console.log(response);
         console.log(data);
+
+        if(response.status == "ok"){
+            window.location.href="user.html";
+        }
     }
 
 }

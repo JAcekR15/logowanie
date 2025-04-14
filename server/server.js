@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
+const md5 = require("md5");
 const app = express();
 app.use(cors());
 
@@ -19,7 +20,7 @@ conn.connect((err) => {
 });
 app.get("/login/:login/:password", (req, res) => {
   let login = req.params.login;
-  let password = req.params.password;
+  let password = md5(req.params.password);
 
   console.log(login);
   console.log(password);
@@ -29,7 +30,7 @@ app.get("/login/:login/:password", (req, res) => {
     if (err) throw err;
     console.log(result);
     if (result.length > 0) {
-      res.json({ status: "ok" });
+      res.json({ status: "ok",user: result[0] });
     } else {
       res.json({ status: "error" });
     }
@@ -37,7 +38,7 @@ app.get("/login/:login/:password", (req, res) => {
 });
 app.get("/register/:login/:password", (req, res) => {
   let login = req.params.login;
-  let password = req.params.password;
+  let password = md5(req.params.password);
 
   const sql = `INSERT INTO users(login,password,uprawnienia) VALUES ('${login}','${password}','user')`;
   const sql2 = `SELECT login FROM users WHERE login = '${login}'`;

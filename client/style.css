@@ -5,6 +5,7 @@ body{
 }
 
 #content{
+
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -27,5 +28,7 @@ margin: 10px;
 padding: 10px;
 border-radius: 5px;
 border: 1px black solid;
-width: 10vw;
+width: auto;
+height: auto;
+
 }
